@@ -8,7 +8,7 @@ import matplotlib.ticker as ticker
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
 
-# The data cleaning module 
+# The data cleaning module.
 
 # Detect the outliers for one series in the original dataframe  
 def detect_outliers_iqr(data, lower_quantil = 0.25, upper_quantil = 0.75):
