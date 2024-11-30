@@ -1,0 +1,222 @@
+---
+title: "TS Project"
+author: "Yishu Liu"
+date: "2024-11-24"
+output: html_document
+---
+
+## Data Processing
+### Import Data
+```{r}
+library(forecast)
+library(tseries)
+library(ggplot2)
+
+#Import data csv. Remember to change the file path!
+train_data <- read.csv("~/Desktop/DailyDelhiClimateTrain.csv")
+test_data <- read.csv("~/Desktop/DailyDelhiClimateTest.csv")
+```
+
+
+```{r}
+# check data type
+str(train_data)
+str(test_data)
+```
+```{r}
+# change date data type from chr to date -- train data
+train_data$date <- as.Date(train_data$date, format = "%Y/%m/%d")
+
+# check data type after changing
+class(train_data$date)
+head(train_data)
+```
+
+```{r}
+# change date data type from chr to date -- test data
+test_data$date <- as.Date(test_data$date, format = "%Y-%m-%d")
+
+# check data type after changing
+class(test_data$date)
+head(test_data)
+
+```
+
+```{r}
+# train data --tissble object
+train_ts <- ts(train_data$meantemp, 
+               start = c(2013, 1),  # start date: 2013.1.1
+               frequency = 365)    # 365 days
+
+# check
+print(train_ts)
+```
+
+```{r}
+autoplot(train_ts, main = "Mean Temperature in Train data", xlab = "Year", ylab = "Temperature")
+```
+
+From the plot we can see that there is a seasonality during each year. The mean temperature rises up from Jan to June and goes down from June to Dec.
+
+```{r}
+# test data --tissble object
+test_ts <- ts(test_data$meantemp, 
+               start = c(2017, 1),  # start date:2017.1.1
+               frequency = 365)    # 365 days
+# check
+print(test_ts)
+```
+```{r}
+autoplot(test_ts, main = "Mean Temperature in Test data", xlab = "Year", ylab = "Temperature")
+```
+
+### Data Checking
+
+```{r}
+# NA check
+anyNA(train_ts)
+
+which(is.na(train_ts))
+```
+
+```{r}
+library(zoo)
+
+# linear interpolation
+train_ts <- na.approx(train_ts)
+```
+
+```{r}
+library(tseries)
+
+#stationary check
+adf.test(train_ts)
+```
+
+p vale is larger than 0.05, the series is not stationary.
+
+```{r}
+# first order differencing
+train_ts_diff <- diff(train_ts)
+
+# plot 
+autoplot(train_ts_diff, main = "Differenced Time Series", ylab = "Differenced Values")
+
+# adf check
+adf.test(train_ts_diff)
+```
+
+p vale is 0.01, smaller than 0.05, the series is stationary.
+
+
+```{r}
+# ACF and PACF after differencing 这里的lag是小数，不确定为什么。可以修改或者直接去掉这部分。
+acf(train_ts_diff, main = "ACF of Differenced Data")
+pacf(train_ts_diff, main = "PACF of Differenced Data")
+```
+
+## Model
+
+### Benchmark Model
+```{r}
+# Seasonal Naïve Method - The series has significant seasonality, so we skip naive and use season naive.
+snaive_forecast <- snaive(train_ts, h = length(test_ts))
+
+# plot
+autoplot(snaive_forecast, main = "Seasonal Naïve Method Forecast") +
+  autolayer(test_ts, series = "Actual") +
+  labs(x = "Time", y = "Temperature") +
+  theme_minimal()
+```
+
+
+```{r}
+# Mean Method
+mean_forecast <- meanf(train_ts, h = length(test_ts))
+
+# plot
+autoplot(mean_forecast, main = "Mean Method Forecast") +
+  autolayer(test_ts, series = "Actual") +
+  labs(x = "Time", y = "Temperature") +
+  theme_minimal()
+```
+
+```{r}
+# Drift Method
+drift_forecast <- rwf(train_ts, drift = TRUE, h = length(test_ts))
+
+# plot
+autoplot(drift_forecast, main = "Drift Method Forecast") +
+  autolayer(test_ts, series = "Actual") +
+  labs(x = "Time", y = "Temperature") +
+  theme_minimal()
+```
+```{r}
+# evaluate Seasonal Naïve Method
+mae_snaive <- mean(abs(test_ts - snaive_forecast$mean))
+rmse_snaive <- sqrt(mean((test_ts - snaive_forecast$mean)^2))
+
+# evaluate Mean Method
+mae_mean <- mean(abs(test_ts - mean_forecast$mean))
+rmse_mean <- sqrt(mean((test_ts - mean_forecast$mean)^2))
+
+# evaluate Drift Method
+mae_drift <- mean(abs(test_ts - drift_forecast$mean))
+rmse_drift <- sqrt(mean((test_ts - drift_forecast$mean)^2))
+
+# print
+cat("Seasonal Naïve Method: MAE =", mae_snaive, ", RMSE =", rmse_snaive, "\n")
+cat("Mean Method: MAE =", mae_mean, ", RMSE =", rmse_mean, "\n")
+cat("Drift Method: MAE =", mae_drift, ", RMSE =", rmse_drift, "\n")
+```
+
+In the bechmark models, Seasonal Naïve Method has the best result with least MAE and RMSE. 
+
+```{r}
+# check residuals
+checkresiduals(snaive_forecast)
+```
+From the residual diagnostic of seasonal naive model, it has autocorrelation in some lags and it's p value is smaller than 0.05, we should reject the h0 that residual is a white noise. Although this model is not ideal enough, we will use it as a benchmark to compare with other more complex models.
+
+### ARIMA Model
+```{r}
+library(forecast)
+
+# fit ARIMA model 
+arima_model <- auto.arima(train_ts)
+
+# check ARIMA 
+summary(arima_model)
+```
+
+```{r}
+# check residuals
+checkresiduals(arima_model)
+```
+From the residual plot we can see that it is close to a normal distribution. Mean is zero and variance is alsmost constant. However, in the acf plot, some lags sill show significant autocorrelation, and in the ljung box test, the p value is smaller than 0.05. The residual is not a white noise. 
+
+
+```{r}
+# forecast
+forecast_arima <- forecast(arima_model, h = length(test_ts))
+
+# check result
+print(forecast_arima)
+
+# plot
+autoplot(forecast_arima, main = "ARIMA Forecast") +
+  autolayer(test_ts, series = "Actual") +
+  labs(x = "Time", y = "Mean Temperature") +
+  theme_minimal()
+```
+
+```{r}
+# calculate metrics
+mae_arima <- mean(abs(test_ts - forecast_arima$mean))
+rmse_arima <- sqrt(mean((test_ts - forecast_arima$mean)^2))
+
+# print
+cat("ARIMA Model: MAE =", mae_arima, ", RMSE =", rmse_arima, "\n")
+```
+
+Comment: Compared with Seasonal Naïve Method: MAE = 2.629437 , RMSE = 3.273909, ARIMA has bigger MAE 3.63 and RMSE 4.31. However, their residuals are not white noise, we need to try more models.

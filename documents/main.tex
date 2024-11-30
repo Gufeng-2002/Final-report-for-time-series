@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\input{settings/mycommands.tex}
+\input{settings/packages.tex}
+\input{settings/settings.sty}
+
+\title{This is the title}
+\author{Feng Gu}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\section{One}
+This is the srart of the passage.
+
+% \figbox{a}{image.png}{b}{c}
+
+The test is passed successfully.
+
+
+\section{Math part}
+
+This is the first math equation:
+\[
+f(x) = \sum_{i=1}^{n} \epsilon_i
+\]
+
+the second part
+
+\begin{center}
+    \begin{tabular}{lclc}
+    \toprule
+    \textbf{Dep. Variable:}          &     meantemp     & \textbf{  No. Observations:  } &    1462     \\
+    \textbf{Model:}                  &  ARIMA(0, 1, 0)  & \textbf{  Log Likelihood     } & -2823.091   \\
+    \textbf{Date:}                   & Fri, 29 Nov 2024 & \textbf{  AIC                } &  5648.181   \\
+    \textbf{Time:}                   &     01:11:58     & \textbf{  BIC                } &  5653.468   \\
+    \textbf{Sample:}                 &        0         & \textbf{  HQIC               } &  5650.154   \\
+    \textbf{}                        &      - 1462      & \textbf{                     } &             \\
+    \textbf{Covariance Type:}        &       opg        & \textbf{                     } &             \\
+    \bottomrule
+    \end{tabular}
+    \begin{tabular}{lcccccc}
+                    & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+    \midrule
+    \textbf{sigma2} &       2.7919  &        0.071     &    39.481  &         0.000        &        2.653    &        2.930     \\
+    \bottomrule
+    \end{tabular}
+    \begin{tabular}{lclc}
+    \textbf{Ljung-Box (L1) (Q):}     & 37.42 & \textbf{  Jarque-Bera (JB):  } & 369.07  \\
+    \textbf{Prob(Q):}                &  0.00 & \textbf{  Prob(JB):          } &  0.00   \\
+    \textbf{Heteroskedasticity (H):} &  0.78 & \textbf{  Skew:              } & -0.48   \\
+    \textbf{Prob(H) (two-sided):}    &  0.01 & \textbf{  Kurtosis:          } &  5.27   \\
+    \bottomrule
+    \end{tabular}
+    %\caption{SARIMAX Results}
+    \end{center}
+    
+    Warnings: \newline
+     [1] Covariance matrix calculated using the outer product of gradients (complex-step).
+    
+
+\begin{center}
+\begin{tabular}{llrr}
+    \toprule
+    {} &                   Test &   P-Value &  Test Statistic \\
+    \midrule
+    0 &               ADF Test &  0.277412 &       -2.021069 \\
+    1 &              KPSS Test &  0.100000 &        0.187864 \\
+    2 &  Unit Root Differences &       NaN &        1.000000 \\
+    3 &   Seasonal Differences &       NaN &        1.000000 \\
+    \bottomrule
+\end{tabular}
+\end{center}
+
+
+\end{document}

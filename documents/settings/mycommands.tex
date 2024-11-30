@@ -1,0 +1,28 @@
+\newcommand{\notebox}[1]{
+\vspace{.5cm}
+\hrule
+\vspace{5pt}
+{\Large \noindent \textit{Note :}\par}
+   #1
+\vspace{5pt}
+\hrule
+\vspace{.5cm} }
+
+\newcommand{\figbox}[4]{
+\begin{tcolorbox}[colback=cyan!5!white, colframe=white, boxrule=0mm, sharp corners] % 背景色等已经设置过
+    \begin{center}
+    \Large \textit{#1}
+    \end{center}
+    \vspace{.1cm}
+   \begin{minipage}[t]{0.35\textwidth}  % 左侧放置图片的 minipage，并垂直居中
+    \includegraphics[width=\linewidth, valign=t]{#2} % 用\includegraphics命令来放入图片文件
+    \par  
+    \vspace{20pt}
+    \textit{#3} % 在图片下方放入注解文字
+  \end{minipage}
+  \hspace{0.03\textwidth}  % 水平间距
+  \begin{minipage}[t]{0.62\textwidth}  % 右侧放置文本的 minipage
+    {#4} %放入右侧文本
+  \end{minipage}
+\end{tcolorbox}
+}
