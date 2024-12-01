@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1733036661.74948 "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" "main.pdf" "main" 1733036662.15718 0
-  "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" 1733030456.85063 2671 7e011cd3f9bb8940505f8e2581d782d7 ""
+["pdflatex"] 1733045227.73268 "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" "main.pdf" "main" 1733045228.0739 0
+  "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" 1733045227.19541 2209 edd3860cefa635120c4a972e5bf4fece ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -25,7 +25,6 @@
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
-  "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/babel.sty" 1731103615 143218 b56ba929001097bf81564e098af1c174 ""
@@ -83,6 +82,7 @@
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1279039959 678 4792914a8f45be57bb98413425e4c7af ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex" 1632168149 95525 6fd0552101a6b1f9b7a84b402ec435ba ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/lipsum/lipsum.sty" 1632168149 14690 c2c754218a7108db7823a4839c1bc3cd ""
+  "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty" 1731446765 6696 886c9f3087d0b973ed2c19aa79cb3023 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty" 1267981840 13506 a4e71a27db1a69b6fabada5beebf0844 ""
@@ -93,12 +93,12 @@
   "/Users/gufeng/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1732692882 127968 72a9e0623c977cfe76762c46230e27ef ""
   "/Users/gufeng/Library/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1731204331 1917526 1e148319a8a63a4e7afc729641b8a382 ""
   "/Users/gufeng/Library/TinyTeX/texmf.cnf" 1726189350.71765 708 85fd07691b6294ba94c59dbc62380410 ""
-  "main.aux" 1733036662.10698 1142 615c141c2f128751820a1808e5ce0265 "pdflatex"
-  "main.out" 1733036662.10752 293 ebb85d267524b861c9bd6ac235c6cd2a "pdflatex"
-  "main.tex" 1733030456.85063 2671 7e011cd3f9bb8940505f8e2581d782d7 ""
-  "sections/appendix.tex" 1733036661.58532 5318 1aa078bd37f7bbfaaf8fbf8d1054df6e ""
+  "main.aux" 1733045228.03008 1428 76e9ec0dded1db44b62e4acb3c7b9158 "pdflatex"
+  "main.out" 1733045228.03082 293 ebb85d267524b861c9bd6ac235c6cd2a "pdflatex"
+  "main.tex" 1733045227.19541 2209 edd3860cefa635120c4a972e5bf4fece ""
+  "sections/appendix.tex" 1733043733.0194 5101 f96e1cc09d018dcfcad867a2df4cbc3a ""
   "settings/mycommands.tex" 1732863596.71813 826 4c9a30d28018f8b019766cc2dc9a85e0 ""
-  "settings/packages.tex" 1732863952.70671 875 25ec0669e1c806416083a4c376688b18 ""
+  "settings/packages.tex" 1733044304.89845 907 4d4fad863cd326deef4b423a92d1b6eb ""
   "settings/settings.sty" 1733031339.78581 94 640d5faebb426051fe9cb0987e2c659c ""
   (generated)
   "main.aux"

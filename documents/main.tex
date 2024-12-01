@@ -27,53 +27,46 @@ This is the first math equation:
 f(x) = \sum_{i=1}^{n} \epsilon_i
 \]
 
-the second part
 
-\begin{center}
-    \begin{tabular}{lclc}
+\begin{table}[!h]
+    \centering
+    \caption{Model Summary Table}
+    \label{tab:model_summary_combined}
+    \begin{tabular}{lccccc}
     \toprule
-    \textbf{Dep. Variable:}          &     meantemp     & \textbf{  No. Observations:  } &    1462     \\
-    \textbf{Model:}                  &  ARIMA(0, 1, 0)  & \textbf{  Log Likelihood     } & -2823.091   \\
-    \textbf{Date:}                   & Fri, 29 Nov 2024 & \textbf{  AIC                } &  5648.181   \\
-    \textbf{Time:}                   &     01:11:58     & \textbf{  BIC                } &  5653.468   \\
-    \textbf{Sample:}                 &        0         & \textbf{  HQIC               } &  5650.154   \\
-    \textbf{}                        &      - 1462      & \textbf{                     } &             \\
-    \textbf{Covariance Type:}        &       opg        & \textbf{                     } &             \\
-    \bottomrule
-    \end{tabular}
-    \begin{tabular}{lcccccc}
-                    & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+    \textbf{Metric} & \textbf{ME} & \textbf{RMSE} & \textbf{MAE} & \textbf{MPE} \\
     \midrule
-    \textbf{sigma2} &       2.7919  &        0.071     &    39.481  &         0.000        &        2.653    &        2.930     \\
-    \bottomrule
-    \end{tabular}
-    \begin{tabular}{lclc}
-    \textbf{Ljung-Box (L1) (Q):}     & 37.42 & \textbf{  Jarque-Bera (JB):  } & 369.07  \\
-    \textbf{Prob(Q):}                &  0.00 & \textbf{  Prob(JB):          } &  0.00   \\
-    \textbf{Heteroskedasticity (H):} &  0.78 & \textbf{  Skew:              } & -0.48   \\
-    \textbf{Prob(H) (two-sided):}    &  0.01 & \textbf{  Kurtosis:          } &  5.27   \\
-    \bottomrule
-    \end{tabular}
-    %\caption{SARIMAX Results}
-    \end{center}
-    
-    Warnings: \newline
-     [1] Covariance matrix calculated using the outer product of gradients (complex-step).
-    
-
-\begin{center}
-\begin{tabular}{llrr}
-    \toprule
-    {} &                   Test &   P-Value &  Test Statistic \\
+    \multirow{2}{*}{sarima\_dummy} 
+        & 0.5447 & 3.0829 & 2.6184 & -0.079 \\
+        \cmidrule{2-5}
+        & \textbf{MAPE} & \textbf{ACF1} & \textbf{log\_lik} & \textbf{AIC} \\
+    \cmidrule{2-5}
+        & 12.4737 & 0.8543 & -2369.349 & 4762.699 \\
     \midrule
-    0 &               ADF Test &  0.277412 &       -2.021069 \\
-    1 &              KPSS Test &  0.100000 &        0.187864 \\
-    2 &  Unit Root Differences &       NaN &        1.000000 \\
-    3 &   Seasonal Differences &       NaN &        1.000000 \\
+    \textbf{Coefficient} & \textbf{Estimate} & \textbf{Std. Error} & \textbf{Statistic} & \textbf{P-value} \\
+    \cmidrule{1-5}
+    ar1            & 0.9898  & 0.0041 & 242.1087 & 0.0000 \\
+    ma1            & -0.0953 & 0.0298 & -3.2015  & 0.0014 \\
+    ma2            & -0.1798 & 0.0300 & -5.9982  & 0.0000 \\
+    humidity       & -0.1363 & 0.0042 & -32.4098 & 0.0000 \\
+    wind\_speed    & -0.0291 & 0.0072 & -4.0637  & 0.0001 \\
+    meanpressure   & -0.0322 & 0.0076 & -4.2461  & 0.0000 \\
+    time           & 0.0021  & 0.0045 & 0.4730   & 0.6363 \\
+    season\_Autumn & 0.2608  & 0.5227 & 0.4990   & 0.6179 \\
+    season\_Spring & 0.5930  & 0.5235 & 1.1326   & 0.2576 \\
+    season\_Summer & 0.4116  & 0.6098 & 0.6751   & 0.4997 \\
+    intercept      & 63.9278 & 8.5701 & 7.4594   & 0.0000 \\
+    \midrule
+    \textbf{Other Metrics} & \textbf{sigma2} & \textbf{log\_lik} & \textbf{AICc} & \textbf{BIC} \\
+    \cmidrule{1-5}
+    \multirow{2}{*}{sarima\_dummy} & 1.5048 & -2369.349 & 4762.914 & 4826.149  \\
+    \cmidrule{2-5}
+     & \textbf{lb\_stat} & \textbf{lb\_pvalue} & \textbf{bp\_stat} & \textbf{bp\_pvalue} \\
+     \cmidrule{2-5}
+     & 1.5524 & 0.2128 & 1.5492 & 0.2133 \\
     \bottomrule
-\end{tabular}
-\end{center}
-
+    \end{tabular}
+\end{table}
 
 \input{sections/appendix.tex}
 

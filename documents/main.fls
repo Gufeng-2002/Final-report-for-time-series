@@ -134,6 +134,8 @@ INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
+INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT ./settings/settings.sty
 INPUT ./settings/settings.sty
 INPUT settings/settings.sty
@@ -191,4 +193,3 @@ INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb

@@ -1,21 +1,23 @@
-\newpage
+\clearpage
 \section{Appendix for tables}
 
 \begin{table}[!h]
     \centering
     \caption{Model Summary Table}
     \centering
-    \begin{tabular}[t]{lrrrrrrrrrrrrrr}
+    \begin{tabular}[t]{lrrrrrr}
     \toprule
-    .model & r\_squared & adj\_r\_squared & sigma2 & statistic & p\_value & df & log\_lik & AIC & AICc & BIC & CV & deviance & df.residual & rank\\
+    .model & adj\_r\_squared & sigma2 & log\_lik & AICc & BIC & df.residual\\
     \midrule
-    linear\_no\_dummy & 0.7934 & 0.7928 & 11.1880 & 1398.496 & 0 & 5 & -3837.231 & 3537.485 & 3537.543 & 3569.210 & 11.5033 & 16300.86 & 1457 & 5\\
-    linear\_dummy & 0.8715 & 0.8709 & 6.9699 & 1409.162 & 0 & 8 & -3489.786 & 2848.597 & 2848.720 & 2896.184 & 7.3152 & 10134.22 & 1454 & 8\\
-    mean & NA & NA & 53.9946 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
-    naive & NA & NA & 2.7938 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
-    snaive & NA & NA & 8.9231 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
+    linear\_no\_dummy & 0.7928 & 11.1880 & -3837.231 & 3537.543 & 3569.210 & 1457\\
+    linear\_dummy & 0.8709 & 6.9699 & -3489.786 & 2848.720 & 2896.184 & 1454\\
+    naive & NA & 2.7938 & NA & NA & NA & NA\\
+    snaive & NA & 8.9231 & NA & NA & NA & NA\\
+    drift & NA & 2.7938 & NA & NA & NA & NA\\
     \addlinespace
-    drift & NA & NA & 2.7938 & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA & NA\\
+    mean & NA & 53.9946 & NA & NA & NA & NA\\
+    sarima\_dummy & NA & 1.5048 & -2369.349 & 4762.914 & 4826.149 & NA\\
+    sarima\_no\_dummy & NA & 1.5381 & -2387.348 & 4790.795 & 4832.996 & NA\\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -24,17 +26,19 @@
     \centering
     \caption{Model Summary Table}
     \centering
-    \begin{tabular}[t]{lrrrrrrrr}
+    \begin{tabular}[t]{lrrrrrr}
     \toprule
-    .model & kpss\_stat & kpss\_pvalue & ndiffs & nsdiffs & bp\_stat & bp\_pvalue & lb\_stat & lb\_pvalue\\
+    .model & kpss\_stat & kpss\_pvalue & bp\_stat & bp\_pvalue & lb\_stat & lb\_pvalue\\
     \midrule
-    drift & 0.1668 & 0.1 & 0 & 0 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
-    linear\_dummy & 0.1640 & 0.1 & 0 & 0 & 688.8547 & 0.0000 & 690.2692 & 0.0000\\
-    linear\_no\_dummy & 0.1899 & 0.1 & 0 & 0 & 473.1878 & 0.0000 & 474.1595 & 0.0000\\
-    naive & 0.1668 & 0.1 & 0 & 0 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
-    sarima & 0.1538 & 0.1 & 0 & 0 & 1.5492 & 0.2133 & 1.5524 & 0.2128\\
+    drift & 0.1668 & 0.1000 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
+    linear\_dummy & 0.1640 & 0.1000 & 688.8547 & 0.0000 & 690.2692 & 0.0000\\
+    linear\_no\_dummy & 0.1899 & 0.1000 & 473.1878 & 0.0000 & 474.1595 & 0.0000\\
+    mean & 0.5774 & 0.0247 & 1378.7251 & 0.0000 & 1381.5562 & 0.0000\\
+    naive & 0.1668 & 0.1000 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
     \addlinespace
-    snaive & 0.2894 & 0.1 & 0 & 0 & 672.6339 & 0.0000 & 674.0218 & 0.0000\\
+    sarima\_dummy & 0.1538 & 0.1000 & 1.5492 & 0.2133 & 1.5524 & 0.2128\\
+    sarima\_no\_dummy & 0.0711 & 0.1000 & 0.0115 & 0.9145 & 0.0116 & 0.9144\\
+    snaive & 0.2894 & 0.1000 & 672.6339 & 0.0000 & 674.0218 & 0.0000\\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -93,19 +97,19 @@
     \centering
     \caption{Model Summary Table}
     \centering
-    \begin{tabular}[t]{lrrrrrrr}
+    \begin{tabular}[t]{lrrrrr}
     \toprule
-    .model & RMSE & MAE & MPE & MAPE & MASE & RMSSE & ACF1\\
+    .model & RMSE & MAE & MPE & MAPE & ACF1\\
     \midrule
-    drift & 13.3623 & 11.7644 & 50.0270 & 50.0270 & NaN & NaN & 0.9525\\
-    linear\_dummy & 3.6619 & 2.7407 & -9.3986 & 13.7899 & NaN & NaN & 0.8673\\
-    linear\_no\_dummy & 4.2402 & 3.5275 & -17.8293 & 18.4615 & NaN & NaN & 0.7798\\
-    mean & 7.3533 & 6.5861 & -27.4088 & 36.5698 & NaN & NaN & 0.9525\\
-    naive & 13.3623 & 11.7644 & 50.0270 & 50.0270 & NaN & NaN & 0.9525\\
+    sarima\_dummy & 3.0829 & 2.6184 & -0.0790 & 12.4737 & 0.8543\\
+    sarima\_no\_dummy & 3.1777 & 2.7123 & -1.6050 & 13.1857 & 0.8641\\
+    linear\_dummy & 3.6619 & 2.7407 & -9.3986 & 13.7899 & 0.8673\\
+    linear\_no\_dummy & 4.2402 & 3.5275 & -17.8293 & 18.4615 & 0.7798\\
+    mean & 7.3533 & 6.5861 & -27.4088 & 36.5698 & 0.9525\\
     \addlinespace
-    sarima\_dummy & 3.0829 & 2.6184 & -0.0790 & 12.4737 & NaN & NaN & 0.8543\\
-    sarima\_no\_dummy & 3.1777 & 2.7123 & -1.6050 & 13.1857 & NaN & NaN & 0.8641\\
-    snaive & 9.5219 & 7.3749 & 24.3618 & 29.8995 & NaN & NaN & 0.8207\\
+    snaive & 9.5219 & 7.3749 & 24.3618 & 29.8995 & 0.8207\\
+    drift & 13.3623 & 11.7644 & 50.0270 & 50.0270 & 0.9525\\
+    naive & 13.3623 & 11.7644 & 50.0270 & 50.0270 & 0.9525\\
     \bottomrule
     \end{tabular}
-\end{table}
+    \end{table}

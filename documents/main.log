@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  30 NOV 2024 23:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  1 DEC 2024 01:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -335,7 +335,13 @@ Package babel Info: You haven't specified a language as a class or package
  (/Users/gufeng/Library/TinyTeX/texmf-dist/tex/generic/babel/nil.ldf
 Language: nil 2024/11/08 v24.13 Nil language
 \l@nil=\language6
-))) (./settings/settings.sty) (./main.aux)
+))) (/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip66
+\multirow@cntb=\count311
+\multirow@dima=\skip67
+\bigstrutjot=\dimen194
+) (./settings/settings.sty) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -393,16 +399,16 @@ LaTeX Font Info:    ... okay on input line 11.
 
 (/Users/gufeng/Library/TinyTeX/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count311
-\scratchdimen=\dimen194
+\scratchcounter=\count312
+\scratchdimen=\dimen195
 \scratchbox=\box60
-\nofMPsegments=\count312
-\nofMParguments=\count313
+\nofMPsegments=\count313
+\nofMParguments=\count314
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count314
-\MPscratchDim=\dimen195
-\MPnumerator=\count315
-\makeMPintoPDFobject=\count316
+\MPscratchCnt=\count315
+\MPscratchDim=\dimen196
+\MPnumerator=\count316
+\makeMPintoPDFobject=\count317
 \everyMPtoPDFconversion=\toks29
 ) (/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -423,15 +429,6 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {/Users/gufeng/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (331.95828pt too wide) in paragraph at lines 8--21
- [][] 
- []
-
-
-Overfull \hbox (51.17981pt too wide) in paragraph at lines 27--40
- [][] 
- []
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -440,7 +437,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
 
-[2]
+[2
+
+]
 
 [3] (./main.aux)
  ***********
@@ -451,18 +450,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EBB85D267524B861C9BD6AC235C6CD2A;293.
  ) 
 Here is how much of TeX's memory you used:
- 12914 strings out of 475322
- 211870 string characters out of 5769397
- 732493 words of memory out of 5000000
- 35598 multiletter control sequences out of 15000+600000
+ 12982 strings out of 475322
+ 213118 string characters out of 5769397
+ 729609 words of memory out of 5000000
+ 35661 multiletter control sequences out of 15000+600000
  563145 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,9n,96p,368b,457s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (3 pages, 122342 bytes).
+ 84i,11n,96p,368b,457s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on main.pdf (3 pages, 108045 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 86 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

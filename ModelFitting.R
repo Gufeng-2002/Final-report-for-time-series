@@ -25,7 +25,9 @@ test_data <- test_data |>
   as_tibble() |>
   mutate(date = as.Date(date)) |>
   relocate(date, .before = meantemp) |>
-  as_tsibble(index = date)
+  as_tsibble(index = date) |> 
+  mutate(season_Autumn = 0, season_Summer = 0) |> 
+  filter(X != 0)
 
 # doing time series decomposition on the mean temperature to check its trend and seasonality
 # train_data |> 
@@ -65,7 +67,8 @@ benchmarks <- train_data |>
              season_Autumn + season_Spring + season_Summer),
     naive = NAIVE(meantemp),
     snaive = SNAIVE(meantemp), # the seasonal period is not correctly spcified here
-    drift = RW(meantemp ~ drift())
+    drift = RW(meantemp ~ drift()),
+    mean = MEAN(meantemp)
   )
 
 # Define a function to quickly get the latex code for a table from R
@@ -92,7 +95,7 @@ sarima_model <- train_data |>
   model(
     # search a proper SARIMA model but confine 
     # the number of parameters of SARIMA part
-    sarima = ARIMA(
+    sarima_dummy = ARIMA(
       formula = meantemp ~ 
         humidity + wind_speed + meanpressure + time + 
         season_Autumn + season_Spring + season_Summer +
@@ -109,6 +112,24 @@ sarima_model <- train_data |>
           period = 365, # observed and inferred from the STL decomposition and empirial
           P_init = 0, Q_init = 0, fixed = list()
           ),
+      stepwise = TRUE
+    ),
+    sarima_no_dummy = ARIMA(
+      formula = meantemp ~ 
+        humidity + wind_speed + meanpressure + time + 
+        pdq(
+          p = 0:2, 
+          d = 0:2,
+          q = 0:2,
+          p_init = 0, q_init = 0, fixed = list()
+        ) + 
+        PDQ(
+          P = 0:2, 
+          D = 0:2, 
+          Q = 0:2,
+          period = 365, # observed and inferred from the STL decomposition and empirial
+          P_init = 0, Q_init = 0, fixed = list()
+        ),
       stepwise = TRUE
     )
   )
@@ -142,9 +163,32 @@ resid_tests <- fitted_values |>
       box_pierce,
       ljung_box
       ))
+
+# generate latex table
 to_latex_tabular(resid_tests)
 
-# 
+# have a look at the coefficients and generate the latex table
+coeffs_all_models <- all_models |> coef()
+to_latex_tabular(coeffs_all_models)
+
+# doing forecasts with different models and comparing them
+forecasts <- all_models |> forecast(test_data)
+
+# plot the forecasts and save
+forecasts_plot <- forecasts |> autoplot(level = 90) + facet_wrap(vars(.model), ncol = 2, scale = "free_y") +
+  geom_line(data = test_data, mapping = aes(x = date, y = meantemp))  + 
+  theme_minimal()+ 
+  theme(legend.position = "none")
+
+# save the plot
+# save_plot(forecasts_plot) # can not save the mininal theme, i do not why
+
+# check the accuracy by checking some criteria
+accuracies <- accuracy(forecasts, test_data) |> 
+  select(-.type, -ME)
+
+# generate latex table
+to_latex_tabular(accuracies)
 
 
 
