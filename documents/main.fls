@@ -1,8 +1,8 @@
-PWD /Users/gufeng/2024_Fall/dasc6510/6510 Final report/documents
+PWD /Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents
 INPUT /Users/gufeng/Library/TinyTeX/texmf.cnf
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/web2c/texmf.cnf
 INPUT /Users/gufeng/Library/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/gufeng/2024_Fall/dasc6510/6510 Final report/documents/main.tex
+INPUT /Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex
 OUTPUT main.log
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -175,6 +175,9 @@ INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT ./sections/appendix.tex
+INPUT ./sections/appendix.tex
+INPUT sections/appendix.tex
 INPUT /Users/gufeng/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT main.aux
 INPUT ./main.out

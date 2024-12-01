@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  29 NOV 2024 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  30 NOV 2024 23:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/gufeng/2024_Fall/dasc6510/6510 Final report/documents/main.tex"
-(/Users/gufeng/2024_Fall/dasc6510/6510 Final report/documents/main.tex
+**"/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex"
+(/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
 (/Users/gufeng/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -365,14 +365,14 @@ LaTeX Font Info:    ... okay on input line 11.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(73.97733pt, 466.34035pt, 73.97733pt)
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
 * v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=466.34035pt
+* \textwidth=430.00462pt
 * \textheight=681.15898pt
-* \oddsidemargin=1.70734pt
-* \evensidemargin=1.70734pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
 * \topmargin=-52.36449pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -418,31 +418,51 @@ Package hyperref Info: Link coloring OFF on input line 11.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
-
+ (./sections/appendix.tex
 
 [1
 
-{/Users/gufeng/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux)
+{/Users/gufeng/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \hbox (331.95828pt too wide) in paragraph at lines 8--21
+ [][] 
+ []
+
+
+Overfull \hbox (51.17981pt too wide) in paragraph at lines 27--40
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+
+[2]
+
+[3] (./main.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6EBD3DF202D5B234E040A079FD1E3527;149.
+(rerunfilecheck)             Checksum: EBB85D267524B861C9BD6AC235C6CD2A;293.
  ) 
 Here is how much of TeX's memory you used:
- 12891 strings out of 475322
- 211424 string characters out of 5769397
- 718493 words of memory out of 5000000
- 35585 multiletter control sequences out of 15000+600000
+ 12914 strings out of 475322
+ 211870 string characters out of 5769397
+ 732493 words of memory out of 5000000
+ 35598 multiletter control sequences out of 15000+600000
  563145 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,7n,96p,357b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,96p,368b,457s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (1 page, 115239 bytes).
+Output written on main.pdf (3 pages, 122342 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 90 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 25 words of extra memory for PDF output out of 10000 (max. 10000000)
 
