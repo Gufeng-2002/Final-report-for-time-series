@@ -6,9 +6,9 @@
 \input{settings/settings.sty}
 
 
-\title{Temperature forecast for Delhi with SARIMA-improved linear model}
+\title{Comparative Study of Time Series Models for Temperature Forecasting in Delhi}
 \author{Feng Gu(T00751197), Yishu Liu(T00728937), Haoran He(T00749480)}
-\date{\today}
+% \date{\today}
 
 \begin{document}
 \maketitle
@@ -17,19 +17,25 @@
     \textbf{\large Abstract}
 \end{center}
 
-The present study investigates regional temperature trends in Delhi.
- By applying time series analysis techniques, historical temperature data were analyzed, and various models, 
- including the dynamic regression model, standard linear model, and other benchmark forecasting models, 
- were constructed and evaluated for their performance on both training and testing datasets. 
- The results indicate that the dynamic regression with dummy variables outperforms other models in predicting 
- future temperatures. 
+\sloppy
+\textbf{
+This study investigates regional temperature forecasting in Delhi, using climate data collected 
+from 1st January 2013 to 24th April 2017. Various time series models, including dynamic regression 
+model and linear regression, with and without dummy variables, alongside benchmark models like naive,
+ drift, and mean forecasts were applied to the data. We evaluated the models’ performance using 
+ metrics such as RMSE, MAE, and MAPE. Results indicate that the dynamic regression model with 
+ SARIMA errors and dummy variables outperforms other models, achieving the lowest RMSE (3.0829)
+and MAPE (12.4737). These findings highlight the effectiveness of incorporating dummy variables 
+in improving temperature prediction accuracy, offering insights for future applications in climate
+data modeling and decision-making}
 
-Due to page limitations for formal content, most tables and figures referenced in this report 
-are included in the appendix. Additionally, the complete workflow, a notable aspect of this study, 
-has been made available in the accompanying GitHub repository for transparency and reproducibility.
+% customized for showing github repo link
+\textbf{
+All associated code(including Latex) and files can be found in this \href{https://github.com/Gufeng-2002/Final-report-for-time-series.git}{GitHub repository}
+\footnote{\href{https://github.com/Gufeng-2002/Final-report-for-time-series.git}{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
+}.
+}
 
-\textbf{GitHut Repo:} \href{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
-{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
 
 
 
@@ -52,34 +58,34 @@ and to explore and practice a more efficient way to organize and finish the pape
 
 \section{Data}
 \subsection{Source of data}
-From Kaggle\footnote{a machine learning community for learners},  
-we downloaded our weather data, which is 
-the climate data(of shape (1576,5)) about Delhei of India. 
-Each record in the dataset contains 5 variables: date, mean temperature, 
-humidity, wind speed and mean pressure. The mean temperature is the target varialbe and 
-the other variables, except date, are predictors.
+The climate data for the city of Delhi, India, spanning from 1st January 2013 to 24th April 2017, was downloaded 
+from Kaggle\footnote{a machine learning community for learners} and originally sourced from 
+Weather Undergroud API.  
+The dataset consists 1576 records with date index and other 4 variables: mean temperature, 
+humidity, wind speed and mean pressure. The mean temperature is the target variable and 
+the other variables are used as predictors.
+
 
 \subsection{Preparing and processing the data}
-To the raw data, we process it by following the procedure below,
-some additional explanation and corresponding results can be found in appendix:
+We process the raw data by following the procedure below:
 \begin{itemize}
-    \item Checking the missing values, if there are, replacing or removing the missing records.
-    \item Exploring the distribution for the 4 variables, simple box-plot and hist-plot.
-    \item Replacing the abnormal outliers\footnote{outliers were detected using customized algorithm, which could be 
+    \item We check the missing values in the training data and fill them using linear interpolation.
+    \item We explore the distribution of the 4 variables, with boxplots and histogram shown in Figure 2 and 3. 
+    Additionally, STL decomposition is applied to analyze the trend, seasonality and remainder of data, providing better understanding for the data.
+    \item The abnormal outliers\footnote{outliers were detected using customized algorithm, which could be 
     found in the code of Module} 
-    with corresponding moving average value.
-    \item Creating dummy variables from the "date" variable: four seasons.   
+    are replaced with corresponding moving average values.
+    \item We create dummy variables from the "date" variable: four seasons. 
+    \item Before the model fitting, we perform the stationary check and determine that the training data requires first-order differencing.   
 \end{itemize}
 
-\subsection{ProcessRawData module of Python}
-It is notable that these steps are finished in a workflow with module \textit{"ProcessRawData.py"}
-\cite{financialriskforecasting},
-which has been pushed to the public Git repository. It can be easy
-\footnote{only needing to point or change the directory path correctly} 
-to repeat all these steps or make 
-further adjustments to make it suitable for other work. 
+
 
 \section{Method}
+The complete code, latex documents and images can be found in the following \textbf{GitHub repo:}
+\href{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
+{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
+
 \subsection{Specifing the desired model}
 Before we set a specific model for forecasting \textit{meantemp}, 
 we decomposed the \textit{meantemp} using TSL method\cite{fpp3stl}. Becasue
@@ -125,21 +131,38 @@ of SARIMA((P,D,Q) and (p,d,q)) and the specific claculating are finished
 by R language.
 
 \subsection{Comparisions with other models}
-In order to assess our model properly, we build five other models 
-in table 3 at the same time and use them fit and predict together.
+In order to assess our model properly, we totally build \textbf{eight} models: Mean, Drift,
+Naive, Snaive, Linear model with dummy variables or not, dynamic regression model with dummy variables or not
+, shown in table 3, appendix.
 
-\subsection{ModelFitting module of R}
+
+\subsection{Complete workflow}
+
+\subsubsection{ProcessRawData module of Python}
+It is notable that the data processing steps are finished in a workflow with module \textit{"ProcessRawData.py"}
+\cite{financialriskforecasting},
+which has been pushed to the public Git repository. It can be easy
+\footnote{only needing to point or change the directory path correctly} 
+to repeat all these steps or make 
+further adjustments to make it suitable for other work. 
+
+\subsubsection{ModelFitting module of R}
 To fit these models quickly and easily, we choose R to build these models and 
-do relevant tests on them and visualize the results. Same to the Python module,
-there is a \textit{"ModlFitting.R"} in the repo. To make the workload less, there are
-some functions that quickly convert the "table-similar" R object into Latex code of table,
-that's why there are many tables in the appendix, similar function is defined for 
-saving plot objects quickly.
+do relevant tests on them and visualize the results.
+There is a \textit{"ModlFitting.R"} in the repo. There are
+some functions that transport tables from R to Latex document, which 
+accelerated our work.
 
-\section{Result}
-The specific settings about models can be found in the R module, here we turn to
-our attention to the standard linear models and dynamic regression models, especially
-changes of significance level for the three dummy variables.
+\section{Results}
+The specific settings about parameters of models can be found in the R module.
+
+According the table 4 and 7, we compared the performance of these models on
+training data and testing data, the dynamic regression model with dummy variables performs
+well on training and testing data sets, its \textbf{RMSE(3.0829)} and \textbf{MAPE(12.4737)} are
+the lowest in all models(standard linear regression with dummy variables of \textbf{RMSE(3.6619)} and \textbf{MAPE(13.7899)}).
+The AICc and log\_lik are higher than linear models', but it is mainly becasue the 
+number of parameters is more than models', which is reasonable.
+Information about this model is shown in table 1.
 
 From table 4 and 5 in appendix, we found that models with dummy variabes are always
 better in performance than models without that. 
@@ -155,19 +178,15 @@ not imporant to mean temperature, based on the given sample.
 
 Additionally, there is one counterintuitive coefficent: the coefficient
 for \textit{season\_Summer} is smaller than that of \textit{season\_Spring}, which should 
-not be correct by checking the summary about the average feature value in table 1(appendix).
+not be correct by checking the summary about the average feature value in table 2(appendix).
 It might indicate that some predictors in our model take the effect from \textit{season\_Summer},
 if we remove these interfering factors, the relationship might be shown correctly, or this is 
 the truth of the real word.
 
 Although some coefficients did not pass the significance level test, we can still
 use the model to forecast, becasue we are focusing on the relationship between these
-variables but the future values of target.
+variables but the future values of target. 
 
-According the table 4 and 7, we compared the performance of these models on
-training data and testing data, finally chose the dynamic regression with dummy variables
-as the model to represent the forecasts, information about this model is shown 
-in table 1.
 \begin{table}[!h]
     \centering
     \captionsetup{font=small} % Set caption to left-align and smaller font
