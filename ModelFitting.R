@@ -36,26 +36,31 @@ decomposition_plot <- train_data |>
   STL(meantemp ~ trend(60) + season(365),
       robust = TRUE)) |>
   components() |>
-  autoplot()
+  autoplot() + 
+  theme_minimal()
 
 # image storing path (one more '/' at the end)
 image_path <-  "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/images/"
 
 # store the image
-ggsave(paste(image_path, "/decomposition_plot.png", sep = ''),
-       plot = decomposition_plot,
-       width = 8, 
-       height = 5)
+# ggsave(paste(image_path, "decomposition_plot.png", sep = ''),
+#        plot = decomposition_plot,
+#        width = 8, 
+#        height = 5)
 
 # define a function to quickly save plots
-save_plot <- function(plot_, figure_name, width = 8, height = 5) {
+save_plot <- function(plot_, figure_name, 
+                      store_path = image_path, width = 8, height = 5) {
   ggsave(
-  paste(image_path, figure_name, sep = ''),
+  paste(store_path, figure_name, sep = ''),
   plot = plot_,
   width = width, 
   height = height
   )
 }
+
+# save the docomposition plot
+# save_plot(decomposition_plot, "decomposition_plot.png")
 
 # build the standard linear model and four benchmarks
 benchmarks <- train_data |> 
@@ -81,14 +86,6 @@ to_latex_tabular <- function(tabular) {
   # copy the LaTeX code to Clipboard
   write_clip(latex_tabular)
 }
-  
-# Generate the glance result
-glance_benchmarks <- glance(benchmarks) |> 
-  mutate(across(where(is.numeric), ~ round(.x, 4)))
-
-to_latex_tabular(glance_benchmarks)
-
-
 
 # create an SARIMA-improved linear model
 sarima_model <- train_data |> 
@@ -98,7 +95,7 @@ sarima_model <- train_data |>
     sarima_dummy = ARIMA(
       formula = meantemp ~ 
         humidity + wind_speed + meanpressure + time + 
-        season_Autumn + season_Spring + season_Summer +
+        season_Autumn + season_Spring + season_Summer + 
         pdq(
           p = 0:2, 
           d = 0:2,
@@ -141,12 +138,13 @@ fitted_values <- all_models |>
   augment()
 
 # draw the fitted values and store
-fitted_value_plot <- fitted_values |> 
+fitted_values |> 
   autoplot(.fitted) + 
-  geom_line(mapping = aes(x=date, y = meantemp, color = 'ture value', alpha = .1), 
-            data = fitted_values) +
   facet_wrap(vars(.model), scales = "free_y", ncol = 2)  +
-  scale_color_manual(values = c('meantemp' = 'black')) +  # Explicitly set color for True Value
+  geom_line(mapping = aes(x=date, y = meantemp),
+            color = 'black',
+            alpha = .5,
+            data = fitted_values) +
   theme_minimal()+
   theme(legend.position = 'none')
 
@@ -158,14 +156,15 @@ resid_tests <- fitted_values |>
   features(
     .resid,
     c(unitroot_kpss,
-      unitroot_ndiffs,
-      unitroot_nsdiffs,
       box_pierce,
       ljung_box
       ))
-
-# generate latex table
 to_latex_tabular(resid_tests)
+
+# have a look at the glance function
+all_models_glance <- glance(all_models) |>
+  select(.model, adj_r_squared, sigma2, log_lik, AICc, BIC, df.residual)
+to_latex_tabular(all_models_glance)
 
 # have a look at the coefficients and generate the latex table
 coeffs_all_models <- all_models |> coef()
@@ -175,8 +174,12 @@ to_latex_tabular(coeffs_all_models)
 forecasts <- all_models |> forecast(test_data)
 
 # plot the forecasts and save
-forecasts_plot <- forecasts |> autoplot(level = 90) + facet_wrap(vars(.model), ncol = 2, scale = "free_y") +
-  geom_line(data = test_data, mapping = aes(x = date, y = meantemp))  + 
+forecasts_plot <- forecasts |> 
+  autoplot(level = 90) + 
+  facet_wrap(vars(.model), ncol = 2, scale = "free_y") +
+  geom_line(
+    data = test_data, 
+    mapping = aes(x = date, y = meantemp))  + 
   theme_minimal()+ 
   theme(legend.position = "none")
 
@@ -185,10 +188,36 @@ forecasts_plot <- forecasts |> autoplot(level = 90) + facet_wrap(vars(.model), n
 
 # check the accuracy by checking some criteria
 accuracies <- accuracy(forecasts, test_data) |> 
-  select(-.type, -ME)
+  select(-.type, -ME, -MASE, -RMSSE) |> 
+  arrange(RMSE)
 
 # generate latex table
 to_latex_tabular(accuracies)
+
+# summarize the information for sarima_dummy model(the best one)
+to_latex_tabular(best_model |> coef())
+best_forecast <- best_model |> forecast(test_data)
+to_latex_tabular(accuracy(best_forecast, test_data))
+to_latex_tabular(glance(best_model) |> 
+  select(-ar_roots, -ma_roots)
+  )
+to_latex_tabular(best_model |> 
+     augment() |> 
+     features(.resid, c(ljung_box, box_pierce)))
+
+# recheck the mean temperature for different seasons
+temp_season_group <- train_data |> 
+  as_tibble() |> 
+  group_by(season) |> 
+  summarise(mean_temp = mean(meantemp),
+            mean_pressure = mean(meanpressure),
+            mean_w_speed = mean(wind_speed),
+            mean_humidity = mean(humidity))
+to_latex_tabular(temp_season_group)
+
+# add the residual diagnonistics plot
+
+
 
 
 
