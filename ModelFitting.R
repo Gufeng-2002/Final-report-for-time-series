@@ -195,6 +195,7 @@ accuracies <- accuracy(forecasts, test_data) |>
 to_latex_tabular(accuracies)
 
 # summarize the information for sarima_dummy model(the best one)
+best_model <- sarima_model[1][1]
 to_latex_tabular(best_model |> coef())
 best_forecast <- best_model |> forecast(test_data)
 to_latex_tabular(accuracy(best_forecast, test_data))
@@ -215,7 +216,14 @@ temp_season_group <- train_data |>
             mean_humidity = mean(humidity))
 to_latex_tabular(temp_season_group)
 
-# add the residual diagnonistics plot
+# add the residual diagnostics plot (forgot)
+save_plot(
+  best_model |> 
+  gg_tsresiduals(), "best_model_resid_diagnostic.png")
+
+save_plot(
+  benchmarks[2][1] |> 
+    gg_tsresiduals(), "linear_dummy_model_resid_diagnostic.png")
 
 
 
