@@ -20,7 +20,7 @@ def read_data():
     Returns:
         tuple: (traindata, testdata)
     """
-    # download latest version
+    # download the latest version
     path = kagglehub.dataset_download("sumanthvrao/daily-climate-time-series-data")
     file_names = os.listdir(path)
     file_paths = [os.path.join(path, file_name) for file_name in file_names]
