@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  1 DEC 2024 22:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.11.9)  2 DEC 2024 14:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -454,39 +454,37 @@ Package caption Info: End \AtBeginDocument code.
 
 [2]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<images/forecasts_CI90.png, id=107, 2409.0pt x 1505.625pt>
-File: images/forecasts_CI90.png Graphic file (type png)
-<use images/forecasts_CI90.png>
-Package pdftex.def Info: images/forecasts_CI90.png  used on input line 220.
-(pdftex.def)             Requested size: 373.0737pt x 233.16269pt.
-
-
 [3]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<images/forecasts_CI90.png, id=121, 2409.0pt x 1505.625pt>
+File: images/forecasts_CI90.png Graphic file (type png)
+<use images/forecasts_CI90.png>
+Package pdftex.def Info: images/forecasts_CI90.png  used on input line 239.
+(pdftex.def)             Requested size: 373.0737pt x 233.16269pt.
 
 
-[4]
+[4 <./images/forecasts_CI90.png>]
 
-[5 <./images/forecasts_CI90.png>] (./sections/appendix_figure.tex
+[5]
 
-[6
+[6] (./sections/appendix_figure.tex
+
+[7
 
 ]
-<images/raw_train_data.png, id=139, 1156.32pt x 578.16pt>
+<images/raw_train_data.png, id=154, 1156.32pt x 578.16pt>
 File: images/raw_train_data.png Graphic file (type png)
 <use images/raw_train_data.png>
 Package pdftex.def Info: images/raw_train_data.png  used on input line 8.
 (pdftex.def)             Requested size: 373.0737pt x 186.53236pt.
-<images/processed_train_data_box_and_hist_plots.png, id=140, 1156.32pt x 578.16pt>
+<images/processed_train_data_box_and_hist_plots.png, id=155, 1156.32pt x 578.16pt>
 File: images/processed_train_data_box_and_hist_plots.png Graphic file (type png)
 <use images/processed_train_data_box_and_hist_plots.png>
 Package pdftex.def Info: images/processed_train_data_box_and_hist_plots.png  used on input line 15.
 (pdftex.def)             Requested size: 373.0737pt x 186.53236pt.
-<images/decomposition_plot.png, id=141, 2409.0pt x 1505.625pt>
+<images/decomposition_plot.png, id=156, 2409.0pt x 1505.625pt>
 File: images/decomposition_plot.png Graphic file (type png)
 <use images/decomposition_plot.png>
 Package pdftex.def Info: images/decomposition_plot.png  used on input line 22.
@@ -495,7 +493,7 @@ Package pdftex.def Info: images/decomposition_plot.png  used on input line 22.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/fitted_values_all_models.png, id=142, 2409.0pt x 1505.625pt>
+<images/fitted_values_all_models.png, id=157, 2409.0pt x 1505.625pt>
 File: images/fitted_values_all_models.png Graphic file (type png)
 <use images/fitted_values_all_models.png>
 Package pdftex.def Info: images/fitted_values_all_models.png  used on input line 30.
@@ -510,7 +508,7 @@ Package pdftex.def Info: images/forecasts_CI90.png  used on input line 37.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/best_model_resid_diagnostic.png, id=143, 578.16pt x 361.35pt>
+<images/best_model_resid_diagnostic.png, id=158, 578.16pt x 361.35pt>
 File: images/best_model_resid_diagnostic.png Graphic file (type png)
 <use images/best_model_resid_diagnostic.png>
 Package pdftex.def Info: images/best_model_resid_diagnostic.png  used on input line 44.
@@ -518,7 +516,7 @@ Package pdftex.def Info: images/best_model_resid_diagnostic.png  used on input l
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/linear_dummy_model_resid_diagnostic.png, id=144, 578.16pt x 361.35pt>
+<images/linear_dummy_model_resid_diagnostic.png, id=159, 578.16pt x 361.35pt>
 File: images/linear_dummy_model_resid_diagnostic.png Graphic file (type png)
 <use images/linear_dummy_model_resid_diagnostic.png>
 Package pdftex.def Info: images/linear_dummy_model_resid_diagnostic.png  used on input line 51.
@@ -528,21 +526,24 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) (./sections/appendix_table.tex
 
-[7
+[8
 
  <./images/raw_train_data.png> <./images/processed_train_data_box_and_hist_plots.png>]
 
-[8 <./images/decomposition_plot.png> <./images/fitted_values_all_models.png>]
+[9 <./images/decomposition_plot.png> <./images/fitted_values_all_models.png>]
 
-[9 <./images/best_model_resid_diagnostic.png>]
+[10 <./images/best_model_resid_diagnostic.png>]
 
-[10 <./images/linear_dummy_model_resid_diagnostic.png>]
-Overfull \hbox (8.48679pt too wide) in paragraph at lines 39--54
+[11 <./images/linear_dummy_model_resid_diagnostic.png>]
+Overfull \hbox (8.48679pt too wide) in paragraph at lines 44--59
  [][] 
  []
 
 
-Overfull \hbox (12.8995pt too wide) in paragraph at lines 81--96
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (12.8995pt too wide) in paragraph at lines 86--101
  [][] 
  []
 
@@ -554,13 +555,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
 
-[11
+[12
 
 ]
 
-[12]
+[13]
 
-[13] (./main.aux)
+[14] (./main.aux)
  ***********
 LaTeX2e <2024-11-01>
 L3 programming layer <2024-11-02>
@@ -570,21 +571,21 @@ L3 programming layer <2024-11-02>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2C3554827CF9D2C15900B9D67308CE20;2391.
+(rerunfilecheck)             Checksum: B334C990F3C06CDBE4BF602434651A46;2562.
  ) 
 Here is how much of TeX's memory you used:
- 13128 strings out of 475322
- 216811 string characters out of 5769397
- 737205 words of memory out of 5000000
- 35757 multiletter control sequences out of 15000+600000
- 566088 words of font info for 64 fonts, out of 8000000 for 9000
+ 13134 strings out of 475322
+ 216903 string characters out of 5769397
+ 735220 words of memory out of 5000000
+ 35759 multiletter control sequences out of 15000+600000
+ 566447 words of font info for 65 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,11n,96p,496b,473s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/gufeng/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (13 pages, 2300364 bytes).
+ 84i,10n,96p,496b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </Users/gufeng/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></Users/gufeng/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (14 pages, 2314155 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 215 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 
