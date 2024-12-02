@@ -1,36 +1,179 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+% \usepackage{setspace}         % For line spacing if needed
 
 \input{settings/mycommands.tex}
 \input{settings/packages.tex}
 \input{settings/settings.sty}
 
-\title{This is the title}
-\author{Feng Gu}
+
+\title{Temperature forecast for Delhei with SARIMA-improved linear model}
+\author{Feng Gu(T00751197), Yishu Liu(T00728937), Haoran He(T00749480)}
 \date{\today}
 
 \begin{document}
 \maketitle
 
+\begin{center}
+    \textbf{\large Abstract}
+\end{center}
 
-\section{One}
-This is the srart of the passage.
+The present study investigates regional temperature trends in Delhi.
+ By applying time series analysis techniques, historical temperature data were analyzed, and various models, 
+ including the SARIMA model, standard linear model, and other benchmark forecasting models, 
+ were constructed and evaluated for their performance on both training and testing datasets. 
+ The results indicate that the SARIMA model with dummy variables outperforms other models in predicting 
+ future temperatures. 
 
-% \figbox{a}{image.png}{b}{c}
+Due to page limitations for formal content, most tables and figures referenced in this report 
+are included in the appendix. Additionally, the complete workflow, a notable aspect of this study, 
+has been made available in the accompanying GitHub repository for transparency and reproducibility.
 
-The test is passed successfully.
+\textbf{GitHut Repo:} \href{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
+{https://github.com/Gufeng-2002/Final-report-for-time-series.git}
 
 
-\section{Math part}
 
-This is the first math equation:
+\section{Introduction}
+\sloppy
+The subject of global warming and climate change is gradually becoming one of the significant challenges 
+that the world must face. More frequent and intense extreme weather events, such as heat waves, dust storms, 
+and floods, have been observed globally \cite{dabhade2021}. 
+
+The issue of climate change has become particularly crucial in large, densely populated cities. 
+One such example is Delhi, India. The effects of climate change have intensified in recent years, 
+posing challenges to human health, agricultural production, and the environment 
+\cite{hussain2024}. 
+Therefore, studying the temperature trends in Delhi holds high scientific value and practical significance. 
+\sloppy
+This study employs time series analysis, enabling the examination of historical temperature data,
+comparison of different time series models, and the prediction of future temperature trends using the 
+best-fit model. This research aims to provide a comprehensive understanding of temperature trends in the Delhi region,
+and to explore and practice a more efficient way to organize and finish the paper writing work.
+
+\section{Data}
+\subsection{Source of data}
+From Kaggle\footnote{a machine learning community for learners},  
+we downloaded our weather data, which is 
+the climate data(of shape (1576,5)) about Delhei of India. 
+Each record in the dataset contains 5 variables: date, mean temperature, 
+humidity, wind speed and mean pressure. The mean temperature is the target varialbe and 
+the other variables, except date, are predictors.
+
+\subsection{Preparing and processing the data}
+To the raw data, we process it by following the procedure below,
+some additional explanation and corresponding results can be found in appendix:
+\begin{itemize}
+    \item Checking the missing values, if there are, replacing or removing the missing records.
+    \item Exploring the distribution for the 4 variables, simple box-plot and hist-plot.
+    \item Replacing the abnormal outliers\footnote{outliers were detected using customized algorithm, which could be 
+    found in the code of Module} 
+    with corresponding moving average value.
+    \item Creating dummy variables from the "date" variable: four seasons.   
+\end{itemize}
+
+\subsection{ProcessRawData module of Python}
+It is notable that these steps are finished in a workflow with module \textit{"ProcessRawData.py"}
+\cite{financialriskforecasting},
+which has been pushed to the public Git repository. It can be easy
+\footnote{only needing to point or change the directory path correctly} 
+to repeat all these steps or make 
+further adjustments to make it suitable for other work. 
+
+\section{Method}
+\subsection{Specifing the desired model}
+Before we set a specific model for forecasting \textit{meantemp}, 
+we decomposed the \textit{meantemp} using TSL method\cite{fpp3stl}. Becasue
+we have daily climate data, we set the season period as 365, assuming 
+the same day in each year should have the most similar pattern in Temperature
+\footnote{But it is not rigirous, because every 
+four-year there is one more day premium and the number of day
+is not an accurate "365" of interge.}.
+
+After observing the possible seasonality and trend, we create a assume the model as following:
 \[
-f(x) = \sum_{i=1}^{n} \epsilon_i
+y_t = \beta_{5 \times 1} X + \beta_{3 \times 1} H + \eta_t
 \]
+in which:
+\[
+X = \begin{bmatrix}
+    1 & 1 & X_{11} & X_{21} & X_{31}\\
+    1 & 2 & X_{12} & X_{22} & X_{32}\\
+    & & ... & ... &\\
+    1 & t & X_{1t} & X_{2t} & X_{3t} \\
+    \end{bmatrix}
+\quad H_i = 
+\begin{bmatrix}
+    1 & 0 & 0\\
+    0 & 1 & 0\\
+     & ... & \\
+    0 & 0 & 0 \\
+    \end{bmatrix} =
+\begin{cases}
+    1, \text{if the season is i} \\
+    0, other wise
+\end{cases}
+\]
+There are totally three $H_i$ here to aviod multilinearity 
+caused by including intercept. To the $\eta_t$, we assume it follows
+a SARIMA or ARIMA model, specificly:
+\[
+\Phi^P(B^s) \phi^p(B) (1-B^s)^D (1-B)^d \eta_t = 
+\Theta^Q(B^s) \theta^q(B) \epsilon_t
+\]
+where, we set the $s$ equal to 365(days). The searching for peroper order  
+of SARIMA((P,D,Q) and (p,d,q)) and the specific claculating are finished
+by R language.
 
+\subsection{Comparisions with other models}
+In order to assess our model properly, we build five other models 
+in table(xxx) at the same time and use them fit and predict together.
 
+\subsection{ModelFitting module of R}
+To fit these models quickly and easily, we choose R to build these models and 
+do relevant tests on them and visualize the results. Same to the Python module,
+there is a \textit{"ModlFitting.R"} in the repo. To make the workload less, there are
+some functions that quickly convert the "table-similar" R object into Latex code of table,
+that's why there are many tables in the appendix, similar function is defined for 
+saving plot objects quickly.
+
+\section{Result}
+The specific settings about models can be found in the R module, here we turn to
+our attention to the standard linear models and SARIMA-improved models, especially
+changes of significance level for the three dummy variables.
+
+From table 4 and 5 in appendix, we found that models with dummy variabes are always
+better in performance than models without that. 
+The four varialbes: \textit{time, season\_Autumn, season\_Spring, season\_Summer}
+pass the 0.05 significance level test under the 
+$H_{0}\footnote{$H_0$: the coefficient is value of 0, namely no influcence from this variable}$
+assumption, however, they do not pass the corresponding tests in SARIMA models.
+
+To the reason why these variables become not important in SARIMA models,
+one explanation might be that the influences from these four variables can be captured
+well by the SARIMA part in the model, and the long-term trend with \textit{time} is also
+not imporant to mean temperature, based on the given sample.
+
+Additionally, there is one counterintuitive coefficent: the coefficient
+for \textit{season\_Summer} is smaller than that of \textit{season\_Spring}, which should 
+not be correct by checking the summary about the average feature value in table 1(appendix).
+It might indicate that some predictors in our model take the effect from \textit{season\_Summer},
+if we remove these interfering factors, the relationship might be shown correctly, or this is 
+the truth of the real word.
+
+Although some coefficients did not pass the significance level test, we can still
+use the model to forecast, becasue we are focusing on the relationship between these
+variables but the future values of target.
+
+According the table 4 and 7, we compared the performance of these models on
+training data and testing data, finally chose the SARIMA with dummy variables
+as the model to represent the forecasts, information about this model is shown 
+in table 1.
 \begin{table}[!h]
     \centering
-    \caption{Model Summary Table}
+    \captionsetup{font=small} % Set caption to left-align and smaller font
+    \caption{\textit{Summay about the SARIMA model.
+    Including the coefficents, tests about residuals from training data,
+    and criteria about performance from testing data.}}
     \label{tab:model_summary_combined}
     \begin{tabular}{lccccc}
     \toprule
@@ -68,7 +211,88 @@ f(x) = \sum_{i=1}^{n} \epsilon_i
     \end{tabular}
 \end{table}
 
-\input{sections/appendix.tex}
+We also visualized the forecasts for all models to make the comparisons more
+clear and direct.
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.8\textwidth]{images/forecasts_CI90.png}
+    \captionsetup{font=small} % Set caption to left-align and smaller font
+    \caption{\textit{Forecasts from eight models. 
+    Becasue of the assumptions and settings to models,
+    we should compare the closes forecasts from SARIMA with forecasts
+    from other models.}}
+    \label{fig:figure1}
+\end{figure}
+
+\section{Discussion}
+\subsection{Explanation about the model results}
+According the regression results, we found that \textit{humidity, wind speed and mean pressure} have
+negative effect on mean temperature, with their increases, the temperature decreases.
+In comparison with the winter, the other seasons have higher mean temperature, 
+even thought the coefficent of \textit{Spring} and \textit{Summer} might look counterintuitive, 
+which could be the task for further exploration.
+
+The autoregression and moving average parts show there are strong autocorrelation
+in the mean temperature variable, which could be explained by standard linear model
+that considers \textit{time and seasons} variables in some extent.
+
+\subsection{Other useful work and further improvement.}
+We have to admit it is not a very rigirous report due to the lack of time and 
+the limits of our skills and professional knowledge in coding and Time Series field.
+
+However, this report is a try in using Vscode, Rstudio, Latex entention as a complete
+workflow, in which we manage to finish all the work in one system and make the
+whole process automatic as much as possible. The complete frame work could be found in the GitHub
+repository, including the document frame of Latex.
+
+To make the whole workflow better, i think we can make improvement with the following
+aspects:
+\begin{itemize}
+    \item Learn Time Series forecasting models more
+    \item Be familiar with R and Python for Data Science
+    \item Be familiar with using Vscode, Rstudio and GitHub for collaboration.
+\end{itemize}
+
+\clearpage
+% Bibliography section
+\begin{thebibliography}{99} % The number specifies the width of the label
+
+    \bibitem{dabhade2021} 
+    A. Dabhade, S. Roy, M. S. Moustafa, S. A. Mohamed, R. El Gendy, and S. Barma, 
+    ``Extreme Weather Event (Cyclone) Detection in India Using Advanced Deep Learning Techniques,'' 
+    \textit{2021 9th International Conference on Orange Technology (ICOT)}, 
+    Tainan, Taiwan, 2021, pp. 1--4, 
+    doi: \href{https://doi.org/10.1109/ICOT54518.2021.9680663}{10.1109/ICOT54518.2021.9680663}.
+
+    \bibitem{hussain2024} 
+    Hussain S., Hussain E., Saxena P., Sharma A., Thathola P., Sonwani S., 
+    ``Navigating the impact of climate change in India: a perspective on climate action (SDG13) and sustainable cities and communities (SDG11),'' 
+    \textit{Frontiers in Sustainable Cities}, 2024 Jan 23. 
+    Available from: 
+    \href{https://research-ebsco-com.ezproxy.tru.ca/linkprocessor/plink?id=6c6991da-78bd-3062-a586-5a5d83ba7467}{https://research-ebsco-com.ezproxy.tru.ca}.
+
+    \bibitem{financialriskforecasting}
+    A. McNeil. 
+    ``Financial Risk Forecasting: R Best Practice,'' 
+    \textit{Financial Risk Forecasting Notebook}. 
+    Available at: \url{https://www.financialriskforecasting.com/notebook/R/BestPractice.html}. 
+    Accessed: November 30, 2024.
+
+    \bibitem{fpp3stl}
+    H. Hyndman and G. Athanasopoulos. 
+    ``STL Decomposition,'' 
+    \textit{Forecasting: Principles and Practice (3rd ed.)}. 
+    Available at: \url{https://otexts.com/fpp3/stl.html}. 
+    Accessed: November 30, 2024.
+
+\end{thebibliography}
+
+
+
+
+
+\input{sections/appendix_figure.tex}
+\input{sections/appendix_table.tex}
 
 
 \end{document}
