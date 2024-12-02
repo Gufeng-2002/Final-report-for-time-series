@@ -1,0 +1,148 @@
+\clearpage
+\subsection{Tables}
+
+\begin{table}[!h]
+    \centering
+    \caption{\small \textit{Mean features for different seasons}}
+    \centering
+    \begin{tabular}[t]{lrrrr}
+    \toprule
+    season & mean\_temp & mean\_pressure & mean\_w\_speed & mean\_humidity\\
+    \midrule
+    Autumn & 26.0792 & 1009.7134 & 5.4029 & 60.8571\\
+    Spring & 28.5264 & 1007.4021 & 8.4979 & 45.2249\\
+    Summer & 31.7559 & 999.5255 & 7.8920 & 64.0544\\
+    Winter & 15.4633 & 1016.7316 & 5.3775 & 73.1533\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{\small \textit{Models built in this report}}
+    \label{tab:model_classification}
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Basic Model} & \textbf{With Dummy}    & \textbf{Without Dummy}   \\ \hline
+    Drift                & Linear Dummy           & Linear No Dummy          \\ 
+    Mean                 & Sarima Dummy           & Sarima No Dummy          \\ 
+    Naive                &                        &                          \\ 
+    SNaive               &                        &                          \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\begin{table}[!h]
+    \centering
+    \caption{\small \textit{Performance of models}}
+    \centering
+    \begin{tabular}[t]{lrrrrrr}
+    \toprule
+    .model & adj\_r\_squared & sigma2 & log\_lik & AICc & BIC & df.residual\\
+    \midrule
+    linear\_no\_dummy & 0.7928 & 11.1880 & -3837.231 & 3537.543 & 3569.210 & 1457\\
+    linear\_dummy & 0.8709 & 6.9699 & -3489.786 & 2848.720 & 2896.184 & 1454\\
+    naive & NA & 2.7938 & NA & NA & NA & NA\\
+    snaive & NA & 8.9231 & NA & NA & NA & NA\\
+    drift & NA & 2.7938 & NA & NA & NA & NA\\
+    \addlinespace
+    mean & NA & 53.9946 & NA & NA & NA & NA\\
+    sarima\_dummy & NA & 1.5048 & -2369.349 & 4762.914 & 4826.149 & NA\\
+    sarima\_no\_dummy & NA & 1.5381 & -2387.348 & 4790.795 & 4832.996 & NA\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{\small \textit{Comparisions of criteria for forecasting}}
+    \centering
+    \begin{tabular}[t]{lrrrrr}
+    \toprule
+    .model & RMSE & MAE & MPE & MAPE & ACF1\\
+    \midrule
+    sarima\_dummy & 3.0829 & 2.6184 & -0.0790 & 12.4737 & 0.8543\\
+    sarima\_no\_dummy & 3.1777 & 2.7123 & -1.6050 & 13.1857 & 0.8641\\
+    linear\_dummy & 3.6619 & 2.7407 & -9.3986 & 13.7899 & 0.8673\\
+    linear\_no\_dummy & 4.2402 & 3.5275 & -17.8293 & 18.4615 & 0.7798\\
+    mean & 7.3533 & 6.5861 & -27.4088 & 36.5698 & 0.9525\\
+    \addlinespace
+    snaive & 9.5219 & 7.3749 & 24.3618 & 29.8995 & 0.8207\\
+    drift & 13.3623 & 11.7644 & 50.0270 & 50.0270 & 0.9525\\
+    naive & 13.3623 & 11.7644 & 50.0270 & 50.0270 & 0.9525\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[!h]
+    \centering
+    \caption{\small \textit{Tests on residuals from models' fitted values}}
+    \centering
+    \begin{tabular}[t]{lrrrrrr}
+    \toprule
+    .model & kpss\_stat & kpss\_pvalue & bp\_stat & bp\_pvalue & lb\_stat & lb\_pvalue\\
+    \midrule
+    drift & 0.1668 & 0.1000 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
+    linear\_dummy & 0.1640 & 0.1000 & 688.8547 & 0.0000 & 690.2692 & 0.0000\\
+    linear\_no\_dummy & 0.1899 & 0.1000 & 473.1878 & 0.0000 & 474.1595 & 0.0000\\
+    mean & 0.5774 & 0.0247 & 1378.7251 & 0.0000 & 1381.5562 & 0.0000\\
+    naive & 0.1668 & 0.1000 & 37.3479 & 0.0000 & 37.4246 & 0.0000\\
+    \addlinespace
+    sarima\_dummy & 0.1538 & 0.1000 & 1.5492 & 0.2133 & 1.5524 & 0.2128\\
+    sarima\_no\_dummy & 0.0711 & 0.1000 & 0.0115 & 0.9145 & 0.0116 & 0.9144\\
+    snaive & 0.2894 & 0.1000 & 672.6339 & 0.0000 & 674.0218 & 0.0000\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{\small \textit{Specific coefficients and statistics}}
+    \centering
+    \begin{tabular}[t]{llrrrr}
+    \toprule
+    .model & term & estimate & std.error & statistic & p.value\\
+    \midrule
+    linear\_no\_dummy & (Intercept) & 700.3787 & 11.8561 & 59.0733 & 0.0000\\
+    linear\_no\_dummy & humidity & -0.1567 & 0.0058 & -27.0830 & 0.0000\\
+    linear\_no\_dummy & wind\_speed & -0.0409 & 0.0211 & -1.9380 & 0.0528\\
+    linear\_no\_dummy & meanpressure & -0.6612 & 0.0118 & -56.0071 & 0.0000\\
+    linear\_no\_dummy & time & 0.0021 & 0.0002 & 10.3031 & 0.0000\\
+    \addlinespace
+    linear\_dummy & (Intercept) & 419.8945 & 14.5850 & 28.7894 & 0.0000\\
+    linear\_dummy & humidity & -0.1399 & 0.0056 & -24.8596 & 0.0000\\
+    linear\_dummy & wind\_speed & -0.0106 & 0.0169 & -0.6284 & 0.5298\\
+    linear\_dummy & meanpressure & -0.3888 & 0.0144 & -26.9365 & 0.0000\\
+    linear\_dummy & time & 0.0017 & 0.0002 & 10.1253 & 0.0000\\
+    \addlinespace
+    linear\_dummy & season\_Autumn & 5.9208 & 0.2251 & 26.3036 & 0.0000\\
+    linear\_dummy & season\_Spring & 5.6261 & 0.2601 & 21.6269 & 0.0000\\
+    linear\_dummy & season\_Summer & 8.2651 & 0.3086 & 26.7856 & 0.0000\\
+    drift & b & 0.0000 & 0.0437 & 0.0000 & 1.0000\\
+    sarima\_dummy & ar1 & 0.9898 & 0.0041 & 242.1087 & 0.0000\\
+    \addlinespace
+    sarima\_dummy & ma1 & -0.0953 & 0.0298 & -3.2015 & 0.0014\\
+    sarima\_dummy & ma2 & -0.1798 & 0.0300 & -5.9982 & 0.0000\\
+    sarima\_dummy & humidity & -0.1363 & 0.0042 & -32.4098 & 0.0000\\
+    sarima\_dummy & wind\_speed & -0.0291 & 0.0072 & -4.0637 & 0.0001\\
+    sarima\_dummy & meanpressure & -0.0322 & 0.0076 & -4.2461 & 0.0000\\
+    \addlinespace
+    sarima\_dummy & time & 0.0021 & 0.0045 & 0.4730 & 0.6363\\
+    sarima\_dummy & season\_Autumn & 0.2608 & 0.5227 & 0.4990 & 0.6179\\
+    sarima\_dummy & season\_Spring & 0.5930 & 0.5235 & 1.1326 & 0.2576\\
+    sarima\_dummy & season\_Summer & 0.4116 & 0.6098 & 0.6751 & 0.4997\\
+    sarima\_dummy & intercept & 63.9278 & 8.5701 & 7.4594 & 0.0000\\
+    \addlinespace
+    sarima\_no\_dummy & ar1 & 0.9821 & 0.0054 & 180.2766 & 0.0000\\
+    sarima\_no\_dummy & ma1 & -0.0234 & 0.0329 & -0.7128 & 0.4761\\
+    sarima\_no\_dummy & humidity & -0.1355 & 0.0042 & -32.3052 & 0.0000\\
+    sarima\_no\_dummy & wind\_speed & -0.0305 & 0.0070 & -4.3544 & 0.0000\\
+    sarima\_no\_dummy & meanpressure & -0.0321 & 0.0075 & -4.2714 & 0.0000\\
+    \addlinespace
+    sarima\_no\_dummy & time & -0.0001 & 0.0039 & -0.0339 & 0.9730\\
+    sarima\_no\_dummy & intercept & 66.1415 & 8.2258 & 8.0408 & 0.0000\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+
