@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1733108138.97978 "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" "main.pdf" "main" 1733108143.42243 0
-  "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" 1733108138.95938 13834 be64ec6a507b655c5772941975b78ebe ""
+["pdflatex"] 1733121383.37774 "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" "main.pdf" "main" 1733121389.73871 0
+  "/Users/gufeng/2024_Fall/dasc6510/Final report for time series/documents/main.tex" 1733121383.16488 14058 632f27a86dc0f533127aa7a7622ff9bd ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/Users/gufeng/Library/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -111,9 +111,9 @@
   "images/linear_dummy_model_resid_diagnostic.png" 1733102197.12583 162473 41c77b8bd15b8804b06466cf15690b8c ""
   "images/processed_train_data_box_and_hist_plots.png" 1733024314.77589 257156 613793c02a0d5aa8226c756bf1e0fcd7 ""
   "images/raw_train_data.png" 1733024309.65567 278776 7610c4d908a2e2d7c52f594aa1f2a55f ""
-  "main.aux" 1733108143.35129 6972 11e9eab7decae363f777455290254b34 "pdflatex"
-  "main.out" 1733108143.35244 2391 2c3554827cf9d2c15900b9d67308ce20 "pdflatex"
-  "main.tex" 1733108138.95938 13834 be64ec6a507b655c5772941975b78ebe ""
+  "main.aux" 1733121389.63417 7234 ca0bbf93b7c7881974b2ca5a91ad7b66 "pdflatex"
+  "main.out" 1733121389.63569 2391 2c3554827cf9d2c15900b9d67308ce20 "pdflatex"
+  "main.tex" 1733121383.16488 14058 632f27a86dc0f533127aa7a7622ff9bd ""
   "sections/appendix_figure.tex" 1733107696.31079 1756 4b592d1ed92da423820c283dec94271c ""
   "sections/appendix_table.tex" 1733107756.17392 6345 b84d7df39f58d95055cc271447a1f202 ""
   "settings/mycommands.tex" 1732863596.71813 826 4c9a30d28018f8b019766cc2dc9a85e0 ""
